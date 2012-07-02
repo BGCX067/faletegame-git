@@ -17,7 +17,7 @@ COLORES = (ROJO, NEGRO)
 
 for rojo in COLORES:
 	ventana.fill(rojo)
-	time.sleep(2) 
+	time.sleep(2)  
 	pygame.display.update()
  
 imagen = pygame.image.load ("img/pistas.jpg")
