@@ -20,16 +20,15 @@ for rojo in COLORES:
 	time.sleep(2)  
 	pygame.display.update()
  
-imagen = pygame.image.load ("img/pistas.jpg")
-imagen = imagen.convert()
+fondo = pygame.image.load ("img/pistas.jpg")
+fondo = fondo.convert()
 x,y = (0,0) 
-ventana.blit(imagen, [x,y])
+ventana.blit(fondo, [x,y])
 pygame.display.flip()
 
-imagen = pygame.image.load ("img/atleta.jpg") 
-imagen = imagen.convert()
-x,y = (200,200)
-ventana.blit(imagen, [x,y])
+personaje = pygame.image.load ("img/atleta.jpg") 
+personaje = personaje.convert()
+x_personaje,y_personaje = (200,200)
 pygame.display.flip()
   # Bucle de eventos
 while True:
@@ -38,12 +37,23 @@ while True:
             pygame.quit()
             sys.exit() 
         if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_LEFT:
-				x = x - 10
-				ventana.blit(imagen, [x,y])
-				pygame.display.flip()
-        if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_RIGHT:
-				x = x + 10
-				ventana.blit(imagen, [x,y])
-				pygame.display.flip()
+            if event.key == pygame.K_LEFT:
+                ventana.blit(fondo, [x,y])
+                x_personaje = x_personaje -10
+                ventana.blit(personaje, [x_personaje,y_personaje])
+                pygame.display.flip()
+            if event.key == pygame.K_RIGHT:
+                ventana.blit(fondo, [x,y])
+                x_personaje = x_personaje + 10
+                ventana.blit(personaje, [x_personaje,y_personaje])
+                pygame.display.flip()
+            if event.key == pygame.K_DOWN:
+                ventana.blit(fondo, [x,y])
+                y_personaje = y_personaje + 10
+                ventana.blit(personaje, [x_personaje,y_personaje])
+                pygame.display.flip()
+            if event.key == pygame.K_UP:
+                ventana.blit(fondo, [x,y])
+                y_personaje = y_personaje - 10
+                ventana.blit(personaje, [x_personaje,y_personaje])
+                pygame.display.flip()     
