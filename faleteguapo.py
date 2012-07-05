@@ -18,7 +18,6 @@ NEGRO = (0, 0, 0)
 COLORES = (ROJO, NEGRO)
 
 for rojo in COLORES:
-	ventana.fill(rojo)
 	time.sleep(2)  
 	pygame.display.update()
  
@@ -36,21 +35,17 @@ pygame.display.flip()
 #Configurar el tipo de letra
 tamanio = 48
 fuente = pygame.font.SysFont(None, tamanio)
- 
 #Configurar el texto
-texto = fuente.render('Hello world', True, BLANCO, AZUL)
+texto = fuente.render('Fran guapo', True, BLANCO, AZUL)
 textoRect = texto.get_rect()
 textoRect.centerx = ventana.get_rect().centerx
 textoRect.centery = ventana.get_rect().centery
 ventana.blit(texto, textoRect)
- 
- 
- 
- 
- 
- 
- 
- 
+pygame.display.flip()  
+  
+  
+  
+  
   # Bucle de eventos
 while True:
     for event in pygame.event.get():
@@ -77,4 +72,14 @@ while True:
                 ventana.blit(fondo, [x,y])
                 y_personaje = y_personaje - 10
                 ventana.blit(personaje, [x_personaje,y_personaje])
-                pygame.display.flip()     
+                pygame.display.flip()
+            if event.key == pygame.K_SPACE:
+				ventana.blit(fondo, [x,y])
+				y_personaje = y_personaje - 40
+				ventana.blit(personaje, [x_personaje,y_personaje])
+				pygame.display.flip()
+				time.sleep(0.5)
+				ventana.blit(fondo, [x,y])
+				y_personaje = y_personaje + 40
+				ventana.blit(personaje, [x_personaje,y_personaje])
+				pygame.display.flip()        
